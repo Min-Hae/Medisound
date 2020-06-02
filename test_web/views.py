@@ -18,6 +18,7 @@ def search_drug(request):
             if not os.path.isfile(f):
                 form.save()
             img_name = get_text.get_name(f)
+            os.remove(f)
             search = Drug.objects.filter(name__icontains=img_name).values()
             context = {'drug_list': search, 'cnt': search.count()}
             return render(request, 'test-web/search-results.html', context=context)
@@ -34,6 +35,7 @@ def text_detect(request):
             if not os.path.isfile(f):
                 form.save()
             img_text = get_text.get_text(f)
+            os.remove(f)
             context = {'text': img_text}
             return render(request, 'test-web/text-results.html', context=context)
     else:
