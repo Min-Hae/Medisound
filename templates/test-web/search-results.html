@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <h2>검색 결과</h2>
+  {% if drug_list %}
+    <p>총 {{ cnt }}건</p>
+    <ul>
+      {% for drug in drug_list %}
+        <li>
+          <a href="{% url "drug-detail" pk=drug.id %}">{{ drug.name }}</a>
+        </li>
+     {% endfor %}
+    </ul>
+  {% else %}
+    <p>검색 결과가 없습니다.</p>
+  {% endif %}       
+{% endblock %}

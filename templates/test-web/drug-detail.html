@@ -1,0 +1,8 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h3>제품명: {{ drug.name }}</h3>
+    <p><strong>회사: </strong>{{ drug.company }}</p>
+    <p><strong>효능: </strong>{{ drug.effect }}</p>
+    <p><strong>용법: </strong>{{ drug.use }}</p>
+{% endblock %}
