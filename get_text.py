@@ -1,4 +1,5 @@
 import os, io
+import csv
 
 os.environ["GOOGLE_APPLICATION_CREDENTIALS"] = ""
 os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'mid_test_django.settings')
@@ -49,8 +50,6 @@ def get_name(img):
     regex = r"\s" + re.escape(na) + r".*\s"
     name = re.search(regex, texts[0].description).group(0).strip().replace("\n", " ")
     return name
-#print(name)
-#print(texts[index].description+texts[index+1].description)
 
 
 def get_text(img):
@@ -62,4 +61,13 @@ def get_text(img):
     response = client.text_detection(image=image)
     texts = response.text_annotations
     return texts[0].description
+
+
+def save_csv():
+    csv_path = './medicine4.csv'
+    with open(csv_path, encoding='utf-8-sig') as csvfile:
+        reader = csv.DictReader(csvfile)
+        for i, row in enumerate(reader):
+            Drug(id=int(i+8), name=row.get('제품명'), company=row.get('제품회사'),
+                 ingredient=row.get('성분'), effect=row.get('효능'), use=row.get('용법')).save()
 

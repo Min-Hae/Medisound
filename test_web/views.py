@@ -15,8 +15,7 @@ def search_drug(request):
         form = ImgForm(request.POST, request.FILES)
         if form.is_valid():
             f = './media/image/'+str(request.FILES['img'])
-            if not os.path.isfile(f):
-                form.save()
+            form.save()
             img_name = get_text.get_name(f)
             os.remove(f)
             search = Drug.objects.filter(name__icontains=img_name).values()
@@ -32,8 +31,7 @@ def text_detect(request):
         form = ImgForm(request.POST, request.FILES)
         if form.is_valid():
             f = './media/image/'+str(request.FILES['img'])
-            if not os.path.isfile(f):
-                form.save()
+            form.save()
             img_text = get_text.get_text(f)
             os.remove(f)
             context = {'text': img_text}
