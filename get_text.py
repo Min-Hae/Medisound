@@ -61,7 +61,6 @@ def get_text(img):
     response = client.text_detection(image=image)
     texts = response.text_annotations
     return texts[0].description
-<<<<<<< HEAD
 
 
 def save_csv():
@@ -72,16 +71,3 @@ def save_csv():
             Drug(id=int(i+8), name=row.get('제품명'), company=row.get('제품회사'),
                  ingredient=row.get('성분'), effect=row.get('효능'), use=row.get('용법')).save()
 
-=======
-def save():
-    csv_path = 'medicine4.csv'
-    with open(csv_path, encoding = 'UTF8') as csvfile:
-        reader = csv.DictReader(csvfile)
-        for row in reader:
-        #print(row['\ufeffid'])
-            Drug.objects.create(
-
-                id = row['\ufeffid'], name = row['제품명'], company = row['제품회사'],
-                ingredient = row['성분'], effect = row['효능'], use = row['용법']
-            )
->>>>>>> 27bcf470f92cf0aac710abb086e8549d3209a36d
