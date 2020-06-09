@@ -10,7 +10,7 @@ def main(request):
     return render(request, 'main.html')
 
 
-def search_drug(request):
+def search_drug_img(request):
     if request.method == 'POST':
         form = ImgForm(request.POST, request.FILES)
         if form.is_valid():
@@ -23,22 +23,16 @@ def search_drug(request):
             return render(request, 'test-web/search-results.html', context=context)
     else:
         form = ImgForm()
-    return render(request, 'test-web/search-drug.html', {'form': form})
+    return render(request, 'test-web/search-img.html', {'form': form})
 
 
-def text_detect(request):
-    if request.method == 'POST':
-        form = ImgForm(request.POST, request.FILES)
-        if form.is_valid():
-            f = './media/image/'+str(request.FILES['img'])
-            form.save()
-            img_text = get_text.get_text(f)
-            os.remove(f)
-            context = {'text': img_text}
-            return render(request, 'test-web/text-results.html', context=context)
-    else:
-        form = ImgForm()
-    return render(request, 'test-web/get-text.html', {'form': form})
+def search_drug_name(request):
+    search_name = request.GET.get('search_box', '')
+    if search_name:
+        result = Drug.objects.filter(name__icontains=search_name).values()
+        context = {'drug_list': result, 'cnt': result.count()}
+        return render(request, 'test-web/search-results.html', context=context)
+    return render(request, 'test-web/search-name.html')
 
 
 class DrugDetailView(generic.DetailView):

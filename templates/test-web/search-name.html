@@ -1,0 +1,9 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h2>Image text detection</h2>
+    <form method="get" action="">
+        <input id="search_box" type="text" name="search_box" value="{{ name }}" placeholder="제품명을 입력하세요" >
+        <button id="search_submit" type="submit" >검색</button>
+    </form>
+{% endblock %}
