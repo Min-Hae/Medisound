@@ -1,7 +1,7 @@
 import os, io
 import csv
 
-os.environ["GOOGLE_APPLICATION_CREDENTIALS"] = ""
+os.environ["GOOGLE_APPLICATION_CREDENTIALS"] = "./halogen-pier-249104-74d26fdc11c6.json"
 os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'mid_test_django.settings')
 
 import django
