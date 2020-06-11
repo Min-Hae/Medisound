@@ -11,6 +11,10 @@ def main(request):
     return render(request, 'main.html')
 
 
+def about_service(request):
+    return render(request, 'about-service.html')
+
+
 def search_drug_img(request):
     if request.method == 'POST':
         form = ImgForm(request.POST, request.FILES)
