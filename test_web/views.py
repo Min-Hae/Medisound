@@ -3,8 +3,6 @@ from .forms import *
 import get_text
 from .models import *
 import os
-from gtts import gTTS
-from tempfile import TemporaryFile
 
 
 def main(request):
@@ -43,16 +41,7 @@ def search_drug_name(request):
 def drug_detail(request, pk):
     drug = get_object_or_404(Drug, pk=pk)
     context = {'drug': drug}
-    if request.GET.get('play'):
-        play_audio(drug.use)
     return render(request, 'test_web/drug-detail.html', context=context)
 
-
-def play_audio(str):
-    print('버튼실행')
-    tts = gTTS(text=str, lang='ko')
-    f = TemporaryFile()
-    tts.write_to_fp(f)
-    f.close()
 
 

@@ -4,7 +4,8 @@
     <h3>제품명: {{ drug.name }}</h3>
     <p><strong>회사: </strong>{{ drug.company }}</p>
     <p><strong>효능: </strong>{{ drug.effect }}</p>
-    <p><strong>용법: </strong>{{ drug.use }}</p>
-    <button id="play" type="submit">실행</button>
+    <p id="test" value="{{ drug.use }}"><strong>용법: </strong>{{ drug.use }}</p>
+    <script src='https://code.responsivevoice.org/responsivevoice.js'></script>
+    <input onclick="responsiveVoice.speak('{{ drug.use }}', 'Korean Female');" type='button' value='용법 듣기🔊'/>
 
 {% endblock %}
