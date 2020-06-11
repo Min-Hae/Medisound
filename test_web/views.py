@@ -1,13 +1,14 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 from .forms import *
 import get_text
 from .models import *
-from django.views import generic
 import os
+from gtts import gTTS
+from tempfile import TemporaryFile
 
 
 def main(request):
-    return render(request, 'test_web/main.html')
+    return render(request, 'main.html')
 
 
 def search_drug_img(request):
@@ -34,10 +35,20 @@ def search_drug_name(request):
         return render(request, 'test_web/search-results.html', context=context)
     return render(request, 'test_web/search-name.html')
 
-def about_service(request):
-    return render(request, 'test_web/about-service.html')
 
-class DrugDetailView(generic.DetailView):
-    model = Drug
-    template_name = 'test_web/drug-detail.html'
+def drug_detail(request, pk):
+    drug = get_object_or_404(Drug, pk=pk)
+    context = {'drug': drug}
+    if request.GET.get('play'):
+        play_audio(drug.use)
+    return render(request, 'test_web/drug-detail.html', context=context)
+
+
+def play_audio(str):
+    print('버튼실행')
+    tts = gTTS(text=str, lang='ko')
+    f = TemporaryFile()
+    tts.write_to_fp(f)
+    f.close()
+
 

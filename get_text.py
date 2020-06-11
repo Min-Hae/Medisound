@@ -1,7 +1,7 @@
 import os, io
 import csv
 
-os.environ["GOOGLE_APPLICATION_CREDENTIALS"] = "./halogen-pier-249104-74d26fdc11c6.json"
+os.environ["GOOGLE_APPLICATION_CREDENTIALS"] = ""
 os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'mid_test_django.settings')
 
 import django
@@ -64,10 +64,11 @@ def get_text(img):
 
 
 def save_csv():
-    csv_path = './medicine4.csv'
+    csv_path = './medi_1.csv'
     with open(csv_path, encoding='utf-8-sig') as csvfile:
         reader = csv.DictReader(csvfile)
         for i, row in enumerate(reader):
-            Drug(id=int(i+8), name=row.get('제품명'), company=row.get('제품회사'),
+            id = int(i+8)
+            Drug(id=id, name=row.get('제품명'), company=row.get('제품회사'),
                  ingredient=row.get('성분'), effect=row.get('효능'), use=row.get('용법')).save()
 
