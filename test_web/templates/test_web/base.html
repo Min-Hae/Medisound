@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="PPIYAK 삐약 : 모두를 위한 의약품 정보 음성 서비스">
+  <meta name="author" content="hyemingyeong">
+
+  <style type="text/css">
+    @font-face {
+      font-family: "NanumBarunGothic";
+      src: url("./myfont/NanumBarunGothicBold.otf");
+    }
+
+    .headertxt {font-family: NanumBarunGothic; font-size: 2.6rem; font-weight: bold;}
+  </style>
+
+  <title>삐-약, 모두를 위한 의약품 정보 음성 서비스</title>
+
+  <!-- Bootstrap core CSS -->
+  {% load static %}
+  <link href='{% static "vendor/bootstrap/css/bootstrap.css" %}' rel="stylesheet">
+
+  <!-- Custom fonts for this template -->
+  <link href='{% static "vendor/fontawesome-free/css/all.min.css" %}' rel="stylesheet">
+  <link href='{% static "vendor/simple-line-icons/css/simple-line-icons.css" %}' rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css">
+
+  <!-- Custom styles for this template -->
+  <link href='{% static "css/landing-page.css" %}' rel="stylesheet">
+
+</head>
+
+
+
+<body>
+<!-- site title -->
+<nav class="navbar navbar-light bg-light static-top">
+  <div class="container">
+    <a class="navbar-brand" href="">삐-약 PPIYAK</a>
+  </div>
+</nav>
+
+
+
+{% block content %}
+
+{% endblock %}
+
+
+<!-- Footer -->
+<footer class="footer bg-light">
+  <div class="container">
+    <p class="text-muted small mb-4 mb-lg-0">&copy; PPIYAK 2020. All Rights Reserved.</p>
+    <p class="text-muted small mb-4 mb-lg-0">The MIT License (MIT)</p>
+    <p class="text-muted small mb-4 mb-lg-0">Copyright (c) 2013-2019 Blackrock Digital LLC</p>
+  </div>
+</footer>
+
+<!-- Bootstrap core JavaScript -->
+<script src='{% static "vendor/jquery/jquery.min.js" %}'></script>
+<script src='{% static "vendor/bootstrap/js/bootstrap.bundle.min.js" %}'></script>
+
+</body>
+</html>

@@ -7,7 +7,7 @@ import os
 
 
 def main(request):
-    return render(request, 'main.html')
+    return render(request, 'test_web/main.html')
 
 
 def search_drug_img(request):
@@ -20,10 +20,10 @@ def search_drug_img(request):
             os.remove(f)
             search = Drug.objects.filter(name__icontains=img_name).values()
             context = {'drug_list': search, 'cnt': search.count()}
-            return render(request, 'test-web/search-results.html', context=context)
+            return render(request, 'test_web/search-results.html', context=context)
     else:
         form = ImgForm()
-    return render(request, 'test-web/search-img.html', {'form': form})
+    return render(request, 'test_web/search-img.html', {'form': form})
 
 
 def search_drug_name(request):
@@ -31,11 +31,13 @@ def search_drug_name(request):
     if search_name:
         result = Drug.objects.filter(name__icontains=search_name).values()
         context = {'drug_list': result, 'cnt': result.count()}
-        return render(request, 'test-web/search-results.html', context=context)
-    return render(request, 'test-web/search-name.html')
+        return render(request, 'test_web/search-results.html', context=context)
+    return render(request, 'test_web/search-name.html')
 
+def about_service(request):
+    return render(request, 'test_web/about-service.html')
 
 class DrugDetailView(generic.DetailView):
     model = Drug
-    template_name = 'test-web/drug-detail.html'
+    template_name = 'test_web/drug-detail.html'
 

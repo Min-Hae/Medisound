@@ -1,0 +1,52 @@
+{% extends "test_web/base.html" %}
+{% load static %}
+
+{% block content %}
+
+<!-- Header -->
+  <header class="masthead text-white text-center">
+    <div class="overlay"></div>
+    <div class="container">
+      <div class="row">
+        <div class="col-xl-9 mx-auto">
+          <p class = "headertxt"> 모두가 보는 것에서 자유로워질 수 있도록</p>
+          <p class = "headertxt"> 삐-약이 복용법과 성분을 목소리로 알려드릴게요</p>
+        </div>
+      </div>
+    </div>
+  </header>
+
+<!-- Quick Service -->
+<section class="features-icons bg-light text-center">
+  <h3> 서비스 바로가기 </h3>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-4">
+        <div class="features-icons-item mx-auto mb-5 mb-lg-0 mb-lg-3" onClick="location.href='search-img'">
+          <div class="features-icons-icon d-flex">
+            <i class="icon-camera m-auto text-primary"></i>
+          </div>
+          <p class="lead mb-0">사진 한 장으로 <br> 성분과 복용법을 검색해보세요</p>
+        </div>
+      </div>
+      <div class="col-lg-4">
+        <div class="features-icons-item mx-auto mb-0 mb-lg-3" onClick="location.href='search-name'">
+          <div class="features-icons-icon d-flex">
+            <i class="icon-cursor m-auto text-primary"></i>
+          </div>
+          <p class="lead mb-0">궁금할 땐 언제든지 <br> 이름으로 의약품 정보를 찾아보세요</p>
+        </div>
+      </div>
+      <div class="col-lg-4">
+        <div class="features-icons-item mx-auto mb-0 mb-lg-3" onClick="location.href='about-service'">
+          <div class="features-icons-icon d-flex">
+            <i class="icon-info m-auto text-primary"></i>
+          </div>
+          <p class="lead mb-0">삐-약이 제공하는 서비스가 <br> 궁금하다면 클릭해주세요</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+{% endblock %}

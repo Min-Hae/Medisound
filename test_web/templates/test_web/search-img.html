@@ -1,0 +1,36 @@
+{% extends "test_web/base.html" %}
+
+{% block content %}
+
+<!-- Header -->
+  <header class="masthead text-white text-center">
+    <div class="overlay"></div>
+    <div class="container">
+      <div class="row">
+        <div class="col-xl-9 mx-auto">
+            <p class = "headertxt"> 사진을 찍어 원하는 약품을 검색해보세요</p>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- About services -->
+  <section class="showcase">
+    <div class="container-fluid p-0">
+      <div class="row no-gutters">
+
+        <div class="col-lg-6 order-lg-2 text-white showcase-img" style="background-image: url('../../static/img/pills.jpg');"></div>
+        <div class="col-lg-6 order-lg-1 my-auto showcase-text">
+          <h2>사진을 첨부해주세요</h2>
+            <form method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <button type="submit" class="btn btn-block btn-lg btn-primary" > 원하는 약품 찾기 </button>
+            </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+{% endblock %}

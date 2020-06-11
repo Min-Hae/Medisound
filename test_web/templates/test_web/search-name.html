@@ -1,0 +1,43 @@
+{% extends "test_web/base.html" %}
+
+{% block content %}
+
+<!-- Header -->
+<header class="masthead text-white text-center">
+    <div class="overlay"></div>
+    <div class="container">
+        <div class="row">
+            <div class="col-xl-9 mx-auto">
+                <p class = "headertxt">약 이름으로 성분과 복용법을 검색해보세요</p>
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- About services -->
+<section class="showcase">
+    <div class="container-fluid p-0">
+        <div class="row no-gutters">
+            <div class="col-lg-6 order-lg-2 text-white showcase-img" style="background-image: url('../../static/img/pills.jpg');"></div>
+            <div class="col-lg-6 order-lg-1 my-auto showcase-text">
+                <form>
+                    <h2>약 이름으로 궁금한 것을 찾아보세요!</h2>
+                    &nbsp
+                    <div class="form-row">
+                        <div class="col-12 col-md-9 mb-2 mb-md-0">
+                            &nbsp
+                            <input type="text" class="form-control form-control-lg" placeholder="약품명을 입력하세요">
+                        </div>
+                        <div class="col-12 col-md-3">
+                            &nbsp
+                            <button type="submit" class="btn btn-block btn-lg btn-primary"> 검색 </button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+{% endblock %}
